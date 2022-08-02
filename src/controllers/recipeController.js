@@ -22,4 +22,24 @@ const getApiInfo = async () => {
   // eslint-disable-next-line no-unused-vars
   return bunchRecipes;
 };
-console.log(getApiInfo());
+
+const getDbInfo = async () => {
+  const service = await Recipe.findAll({
+    include: {
+      model: Diet,
+      attributes: ["name"],
+    },
+  });
+  return service;
+};
+
+const getAllRecipes = async () => {
+  const apiInfo = await getApiInfo();
+  // eslint-disable-next-line no-unused-vars
+  const dbInfo = await getDbInfo();
+  const allInfo = apiInfo.concat(dbInfo);
+  // eslint-disable-next-line no-unused-vars
+  return allInfo.filter(Boolean);
+};
+
+module.exports = { getAllRecipes };
