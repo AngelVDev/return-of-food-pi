@@ -42,4 +42,4 @@ const getAllRecipes = async () => {
   return allInfo.filter(Boolean);
 };
 
-module.exports = { getAllRecipes };
+module.exports = { getAllRecipes, getApiInfo };

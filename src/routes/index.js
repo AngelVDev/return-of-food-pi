@@ -8,7 +8,7 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-router.use("/", diets);
 router.use("/", recipes);
+router.use("/", diets);
 
 module.exports = router;
