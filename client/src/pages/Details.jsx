@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { clear, deleteById, getDetails } from "../store/actions";
-import Loader from "./Loader";
-import "./styles/Detail.css";
+import Loader from "../components/Loader";
+import { clear, deleteById, getDetails } from "../redux/actions";
+// import "./styles/Details.css";
 
-const Detail = ({ match }) => {
+const Details = ({ match }) => {
   const dispatch = useDispatch();
   const { id } = match.params;
   const history = useHistory();
@@ -72,4 +72,4 @@ const Detail = ({ match }) => {
   }
 };
 
-export default Detail;
+export default Details;

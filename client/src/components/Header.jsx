@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import Searchbar from "./Searchbar";
 import {
   showCreated,
   orderByHealthiness,
   orderByTitle,
   getFoods,
+  filterByDiets,
+  getDiets,
 } from "../redux/actions";
 
 const Header = ({ setCurrentPage }) => {
@@ -46,17 +48,17 @@ const Header = ({ setCurrentPage }) => {
   return (
     <div className="filterContainer">
       <button className="create">
-        <Link style={{ textDecoration: "none", color: "#FEFAE0" }} to="/create">
+        <Link style={{ textDecoration: "none" }} to="/create">
           {" "}
-          Create a doge
+          Share your recipes
         </Link>
       </button>
-      <SearchBar />
+      <Searchbar />
       <button className="reset" onClick={(e) => handleReset(e)}>
         RESET
       </button>
       <label className="headerLabel">
-        Sort by name
+        Sort by title
         <select className="headerSelect" onChange={(e) => handleOrderTitle(e)}>
           <option value="">-</option>
           <option value="ASC">A to Z</option>
@@ -64,7 +66,7 @@ const Header = ({ setCurrentPage }) => {
         </select>
       </label>
       <label className="headerLabel">
-        Sort by weight
+        Sort by healthiness
         <select className="headerSelect" onChange={(e) => handleOrderScore(e)}>
           <option value="">-</option>
           <option value="Low">Low to hi</option>
@@ -72,7 +74,7 @@ const Header = ({ setCurrentPage }) => {
         </select>
       </label>
       <label className="headerLabel">
-        Filter by temperament
+        Filter by diet
         <select className="headerSelect" onChange={(e) => handleFilterDiets(e)}>
           <option value="ALL">All</option>
           {diets &&

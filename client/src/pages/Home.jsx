@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import Cards from "../components/Cards";
+import Card from "../components/Card";
 import Header from "../components/Header";
 import Loader from "../components/Loader";
 import Pagination from "../components/Pagination";
@@ -20,7 +20,7 @@ const Home = () => {
     return (
       <div>
         <Header setCurrentPage={setCurrentPage} />
-        <Cards currentRecipes={currentRecipes} />
+        <Card currentRecipes={currentRecipes} />
         <Pagination
           foods={foods}
           foodsPerPage={foodsPerPage}

@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getFoods } from "../redux/actions";
-import "../styles/components.css";
+// import "../styles/components.css";
 
-const Cards = ({ currentRecipes }) => {
+const Card = ({ currentRecipes }) => {
   const foods = useSelector((state) => state.allFoods);
   const regex = new RegExp("[a-z]");
   const dispatch = useDispatch();
@@ -48,4 +48,4 @@ const Cards = ({ currentRecipes }) => {
     </>
   );
 };
-export default Cards;
+export default Card;

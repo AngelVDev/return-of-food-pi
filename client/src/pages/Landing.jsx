@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/pages.css";
+// import "../styles/pages.css";
 const Landing = () => {
   return (
     <div className="landingBg">
