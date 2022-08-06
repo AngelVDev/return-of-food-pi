@@ -1,4 +1,3 @@
-const axios = require("axios");
 const { getApiInfo } = require("./recipeController");
 
 const dietsAPI = async () => {
@@ -10,7 +9,7 @@ const dietsAPI = async () => {
       .flat()
       .filter(Boolean);
     const [...api] = new Set(dietsOut);
-    return api;
+    return api.map((e) => (e = { name: e }));
   } catch (err) {
     console.log("Diets ERROR => ", err);
   }
