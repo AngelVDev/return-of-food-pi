@@ -5,7 +5,6 @@ const router = Router();
 
 router.get("/diets", async (req, res) => {
   const diets = await dietsAPI();
-  console.log(diets);
   let allDiets = await Diet.findAll();
   try {
     if (!allDiets.length) {
