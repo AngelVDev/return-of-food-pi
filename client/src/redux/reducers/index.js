@@ -112,7 +112,7 @@ function rootReducer(state = initialState, action) {
         action.payload === "ALL"
           ? state.foods
           : structuredCopy.filter((recipes) =>
-              recipes?.diets?.map((t) => t).includes(action.payload)
+              recipes.diets?.map((t) => t).includes(action.payload)
             );
       return {
         ...state,

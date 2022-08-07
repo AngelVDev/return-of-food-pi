@@ -13,7 +13,7 @@ export function getFoods() {
 export function getDiets() {
   return async function (dispatch) {
     let json = await axios.get("/diets", {});
-    dispatch({ type: "GET_TEMPS", payload: json.data });
+    dispatch({ type: "GET_DIETS", payload: json.data });
   };
 }
 export function getQFoods(title) {

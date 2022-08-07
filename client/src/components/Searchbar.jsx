@@ -12,9 +12,10 @@ const SearchBar = () => {
     dispatch(getQFoods(title));
   };
   let handleSubmit = (e) => {
-    e.preventDefault();
+    setTitle(e.target.value);
     dispatch(getQFoods(title));
   };
+
   return (
     <div>
       <input
@@ -25,8 +26,8 @@ const SearchBar = () => {
       />
       <button
         className="searchButton"
-        type="submit"
         onClick={(e) => handleSubmit(e)}
+        type="submit"
       >
         Search
       </button>

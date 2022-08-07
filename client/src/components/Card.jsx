@@ -18,10 +18,7 @@ const Card = ({ currentRecipes }) => {
       {currentRecipes?.map((d) => (
         <div className="card" key={d.id}>
           <h1>
-            <Link
-              style={{ textDecoration: "none", color: "#DDA15E" }}
-              to={"/details/" + d.id}
-            >
+            <Link style={{ textDecoration: "none" }} to={"/details/" + d.id}>
               {d.title}
             </Link>
           </h1>

@@ -44,7 +44,6 @@ const Header = ({ setCurrentPage }) => {
     dispatch(getDiets());
     dispatch(getFoods());
   }, [dispatch]);
-
   return (
     <div className="filterContainer">
       <button className="create">
@@ -79,7 +78,11 @@ const Header = ({ setCurrentPage }) => {
           <option value="ALL">All</option>
           {diets &&
             diets?.map((diet) => {
-              return <option key={diet.id}>{diet.name}</option>;
+              return (
+                <option key={diet.id} value={diet.name}>
+                  {diet.name}
+                </option>
+              );
             })}
         </select>
       </label>
