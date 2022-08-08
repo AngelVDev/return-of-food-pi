@@ -36,7 +36,6 @@ const Card = ({ currentRecipes }) => {
                     </span>
                   ))}
             </p>
-            <p>Lifespan: {d.lifespan}</p>
             <h2>{d.hScore}</h2>
           </div>
           <img src={d?.image} preload="true" alt="cardimgerror" />
