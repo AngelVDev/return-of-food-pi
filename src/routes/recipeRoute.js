@@ -3,6 +3,7 @@ const { Router } = require("express");
 const router = Router();
 const { Recipe, Diet } = require("../db");
 const { getAllRecipes } = require("../controllers/recipeController");
+const regex = new RegExp(/^[a-z0-9._]+$/i);
 
 router.get("/recipes", async (req, res) => {
   try {
@@ -30,14 +31,18 @@ router.get("/recipes/:id", async (req, res) => {
   const { id } = req.params;
   const recipes = await getAllRecipes();
   try {
-    const recipeById = recipes.find((element) => element.id === id);
+    const recipeById = await recipes.find((r) => `${r.id}` === id);
     // Intento traer el elemento que coincida por id desde la API
     // o desde la primaryKey() en la base de datos
-    if (!recipeById) {
+    if (id.includes("-")) {
       const recipeByDB = await Recipe.findByPk(id, {
-        include: {
-          model: Diet,
-        },
+        include: [
+          {
+            model: Diet,
+            as: "diets",
+            through: { attributes: [] },
+          },
+        ],
       });
 
       recipeByDB
