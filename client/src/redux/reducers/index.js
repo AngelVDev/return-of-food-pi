@@ -42,8 +42,8 @@ function rootReducer(state = initialState, action) {
         action.payload === "MIXED"
           ? state.foods
           : action.payload === "DB"
-          ? copy.filter((el) => el.createdInDb)
-          : copy.filter((el) => !el.createdInDb);
+          ? copy.filter((el) => el.createdInDB)
+          : copy.filter((el) => !el.createdInDB);
       return {
         ...state,
         allFoods: bySource,

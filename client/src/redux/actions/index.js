@@ -31,7 +31,7 @@ export function getQFoods(title) {
 }
 export function getDetails(id) {
   return async function (dispatch) {
-    var json = await axios.get("/details/" + id);
+    var json = await axios.get("/recipes/" + id);
     dispatch({
       type: "GET_DETAIL",
       payload: json.data,
