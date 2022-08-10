@@ -42,9 +42,17 @@ const Details = ({ match }) => {
         />
         <div>
           <p dangerouslySetInnerHTML={{ __html: recs.summary }} />
-          <p alt="Steps">Steps: {recs.steps}</p>
-          <p alt="Score">Score: {recs.score} </p>
-          <p alt="H.Score">Healthiness: {recs.h_score} </p>
+          {recs.steps ? (
+            <p alt="Steps">
+              Steps:{" "}
+              {recs.steps?.map((e) => (
+                <ul>
+                  <li>{e}</li>
+                </ul>
+              ))}
+            </p>
+          ) : null}
+          <p alt="H.Score">Healthiness: {recs.hScore} </p>
           <p className="priceDiv" alt="Price">
             Price: ${recs.price}{" "}
           </p>
