@@ -1,0 +1,7 @@
+.landingBg{
+    background: url("../assets/landing.png");
+    background-size: cover;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}

@@ -9,7 +9,7 @@ function validateForms(input) {
   if (input.title.length < 1) {
     error.title = "Name required";
   }
-  if (input.summary.length >= 10) {
+  if (input.summary.length <= 10) {
     error.summary = "Summary must be at least 10 characters, please";
   }
   if (input.score <= 0) {
@@ -177,10 +177,10 @@ const Creator = () => {
         {input.diets.length > 0 && (
           <div key="selectedDiets">
             <label>Selected diets:</label>
-            {input.temperaments.map((e) => (
+            {input.diets.map((e) => (
               <button
                 className="dietButton"
-                key={e}
+                key={e + "Key"}
                 onClick={() => handleDelete(e)}
               >
                 {e} x
