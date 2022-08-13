@@ -11,10 +11,6 @@ const SearchBar = () => {
     setTitle(e.target.value);
     dispatch(getQFoods(title));
   };
-  let handleSubmit = (e) => {
-    setTitle(e.target.value);
-    dispatch(getQFoods(title));
-  };
 
   return (
     <div>
@@ -24,13 +20,7 @@ const SearchBar = () => {
         placeholder="Type here..."
         onChange={(e) => handleInputChange(e)}
       />
-      <button
-        className="searchButton"
-        onClick={(e) => handleSubmit(e)}
-        type="submit"
-      >
-        Search
-      </button>
+      <button className="searchButton">Search</button>
     </div>
   );
 };

@@ -18,7 +18,7 @@ const Home = () => {
   };
   if (foods) {
     return (
-      <div>
+      <div className="homeDiv">
         <Header setCurrentPage={setCurrentPage} />
         <Card currentRecipes={currentRecipes} />
         <Pagination

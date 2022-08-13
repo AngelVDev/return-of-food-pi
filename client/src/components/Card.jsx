@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getFoods } from "../redux/actions";
-// import "../styles/components.css";
+import "../styles/components.css";
 
 const Card = ({ currentRecipes }) => {
   const foods = useSelector((state) => state.allFoods);
@@ -18,7 +18,10 @@ const Card = ({ currentRecipes }) => {
       {currentRecipes?.map((d) => (
         <div className="card" key={d.id}>
           <h1>
-            <Link style={{ textDecoration: "none" }} to={"/details/" + d.id}>
+            <Link
+              style={{ textDecoration: "none", color: "#B77951" }}
+              to={"/details/" + d.id}
+            >
               {d.title}
             </Link>
           </h1>
