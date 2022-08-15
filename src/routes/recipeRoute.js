@@ -16,7 +16,7 @@ router.get("/recipes", async (req, res) => {
         el.title.toLowerCase().includes(title.toLowerCase())
       );
 
-      recipeTitle.length > 3
+      recipeTitle.length
         ? res.status(200).send(recipeTitle)
         : res.status(404).send("Not found");
     } else {
