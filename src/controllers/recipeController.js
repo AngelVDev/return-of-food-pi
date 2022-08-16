@@ -32,7 +32,7 @@ const getApiInfo = async (req, res) => {
   try {
     let i = 0;
     const apiUrl = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEYX[8]}&addRecipeInformation=true&number=100`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEYX[9]}&addRecipeInformation=true&number=100`
     );
     const bunchRecipes = await apiUrl.data.results.map((food) => ({
       id: `${food.id}`,
@@ -44,11 +44,10 @@ const getApiInfo = async (req, res) => {
       diets: food.diets,
       price: food.pricePerServing,
     }));
-    // eslint-disable-next-line no-unused-vars
     return bunchRecipes;
   } catch (err) {
     console.log(err);
-    return res.status(500).send(err);
+    res.status(500).send(err);
   }
 };
 
