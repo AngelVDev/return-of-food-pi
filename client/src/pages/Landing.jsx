@@ -10,16 +10,14 @@ const Landing = () => {
           Gourmet and health for your home
         </h3>
       </div>
-      <button className="landingBtn">
-        <Link
-          style={{
-            textDecoration: "none",
-          }}
-          to="/home"
-        >
-          ¡Andiamo!
-        </Link>
-      </button>
+      <Link
+        style={{
+          textDecoration: "none",
+        }}
+        to="/home"
+      >
+        <button className="landingBtn">¡Andiamo!</button>
+      </Link>
     </div>
   );
 };

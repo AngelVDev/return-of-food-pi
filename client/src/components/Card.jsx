@@ -19,7 +19,7 @@ const Card = ({ currentRecipes }) => {
         <div className="card" key={d.id}>
           <h1>
             <Link
-              style={{ textDecoration: "none", color: "#B77951" }}
+              style={{ textDecoration: "none", color: "#FFF8F0" }}
               to={"/details/" + d.id}
             >
               {d.title}
@@ -39,7 +39,7 @@ const Card = ({ currentRecipes }) => {
                     </span>
                   ))}
             </p>
-            <h2>{d.hScore}</h2>
+            <h2>Healthiness: {d.hScore} 👌 </h2>
           </div>
           <img src={d?.image} preload="true" alt="cardimgerror" />
         </div>

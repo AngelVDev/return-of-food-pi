@@ -12,4 +12,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background: url("../assets/269.jpg");
+    background-clip: padding-box;
+    background-size: contain;
 }

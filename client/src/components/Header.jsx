@@ -10,6 +10,7 @@ import {
   filterByDiets,
   getDiets,
 } from "../redux/actions";
+import "../styles/components.css";
 
 const Header = ({ setCurrentPage }) => {
   const diets = useSelector((state) => state.diets);
