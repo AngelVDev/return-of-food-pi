@@ -13,38 +13,54 @@ const Card = ({ currentRecipes }) => {
     dispatch(getFoods());
   }, [dispatch]);
 
-  return (
-    <>
-      {currentRecipes?.map((d) => (
-        <div className="card" key={d.id}>
-          <h1>
-            <Link
-              style={{ textDecoration: "none", color: "#FFF8F0" }}
-              to={"/details/" + d.id}
-            >
-              {d.title}
-            </Link>
-          </h1>
-          <div className="infoCard">
-            <p>
-              {regex.test(d.id) === true
-                ? d?.diets?.map((diet) => (
-                    <span className="dietCard" key={diet.name + "id"}>
-                      {diet.name}
-                    </span>
-                  ))
-                : d?.diets?.map((diet) => (
-                    <span className="dietCard" key={diet + "id"}>
-                      {diet}
-                    </span>
-                  ))}
-            </p>
-            <h2>Healthiness: {d.hScore} 👌 </h2>
+  if (foods.length) {
+    return (
+      <>
+        {currentRecipes?.map((d) => (
+          <div className="card" key={d.id}>
+            <div className="flipCard">
+              <div className="flipFront">
+                <h1 className="title">
+                  <Link
+                    style={{ textDecoration: "none", color: "#FFF8F0" }}
+                    to={"/details/" + d.id}
+                  >
+                    {d.title}
+                  </Link>
+                </h1>
+                <div className="infoCard">
+                  <p>
+                    {regex.test(d.id) === true
+                      ? d?.diets?.map((diet) => (
+                          <li className="dietCard" key={diet.name + "id"}>
+                            {diet.name}
+                          </li>
+                        ))
+                      : d?.diets?.map((diet) => (
+                          <li className="dietCard" key={diet + "id"}>
+                            {diet}
+                          </li>
+                        ))}
+                  </p>
+                  <h2>Healthiness: {d.hScore} 👌 </h2>
+                </div>
+              </div>
+              <div className="flipBack">
+                <img className="backImg" src={d?.image} alt="cardimgerror" />
+              </div>
+            </div>
           </div>
-          <img src={d?.image} preload="true" alt="cardimgerror" />
-        </div>
-      ))}
-    </>
-  );
+        ))}
+      </>
+    );
+  } else {
+    return (
+      <div>
+        <h1 style={{ color: "white", height: "55vh", marginTop: "40%" }}>
+          Nothing in here
+        </h1>
+      </div>
+    );
+  }
 };
 export default Card;

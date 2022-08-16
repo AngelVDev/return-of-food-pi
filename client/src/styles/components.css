@@ -1,84 +1,112 @@
-.card{
-    width: 300px;
-    height: 400px;
-    background: #7A1B00;
-    text-align: center;
-    margin: 3vh 2vw 3vh 2vw;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    box-sizing: border-box;
-    border-radius: 2%;
+.card {
+  width: 20vw;
+  height: 400px;
+  background: #7a1b00;
+  text-align: center;
+  margin: 3vh 3vw 3vh 3vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 2%;
+  border: 6px double rgba(255, 216, 0, 0.71);
+  perspective: 1000px;
 }
-.card>img{
-    max-height: 30%;
-    object-fit: contain;
-
+.title {
+  font-size: larger;
 }
-.infoCard{
-    box-sizing: border-box;
-    width: 100%;
-    overflow:  hidden;
-    flex-wrap: wrap;
-    margin: 0.3vh 0 0.3vh 0;
-    background: rgba(228, 211, 162, 0.7);
-    border-radius: 25px;
-    color: #FEFAE0;
+.flipCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
-.dietCard{
-    flex-flow: wrap;
-    justify-content: space-evenly;
-    margin-right: 0.4vw;
-    background-color: #1A5200;
-    height: 0.6vh;
-    padding: 0.3vw;
-    width: auto;
-    color:#FFF8F0;
-    border-radius: 40px;
+.card:hover .flipCard {
+  transform: rotateY(180deg);
 }
-.filterContainer{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 130px;
-    width: 100%;
-    background-color: #1A5200;
-    color:#FFF8F0;
+.flipFront,
+.flipBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-.pagesHolder{
-    height: 7vh;
-    display: flex;
-    background: #B77951;
-    box-shadow: 0px 0px 10px 5px rgb(255 102 196 / 8%);
-    border-radius: 40px;
-    margin-bottom: 3vh;
-    margin-top: 5vh;
-    padding-left: 1vw;
-    padding-right: 1vw;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
-  .page{
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #FEFAE0;
-    color: #1A5200;
-    font-size: medium;
-    width: 5px;
-    font-weight: 1000;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding: 2px 8px 2px 8px;
-    border-radius: 4px;
-  }
-  .page:hover{
-    background-color: #535e32a6;
-    color: #baceb7;
-    cursor: pointer;
-  }
+.flipBack {
+  transform: rotateY(180deg);
+}
+.backImg {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 1%;
+  object-fit: cover;
+  filter: brightness(85%);
+}
+.infoCard {
+  box-sizing: border-box;
+  padding-top: 0.1vh;
+  background: rgba(228, 211, 162, 0.7);
+  border-radius: 25px;
+  color: #fefae0;
+}
+.dietCard {
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  margin: 0.3vh;
+  background-color: #1a5200;
+  height: 1rem;
+  padding: 0.3vw;
+  width: auto;
+  color: #fff8f0;
+  border-radius: 40px;
+}
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 130px;
+  width: 100%;
+  background-color: #1a5200;
+  color: #fff8f0;
+}
+.pagesHolder {
+  height: 7vh;
+  display: flex;
+  background: #b77951;
+  box-shadow: 0px 0px 10px 5px rgb(255 102 196 / 8%);
+  border-radius: 40px;
+  margin-bottom: 3vh;
+  margin-top: 5vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.page {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fefae0;
+  color: #1a5200;
+  font-size: medium;
+  width: 5px;
+  font-weight: 1000;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 2px 8px 2px 8px;
+  border-radius: 4px;
+}
+.page:hover {
+  background-color: #535e32a6;
+  color: #baceb7;
+  cursor: pointer;
+}
