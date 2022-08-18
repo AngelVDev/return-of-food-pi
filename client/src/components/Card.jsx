@@ -18,16 +18,16 @@ const Card = ({ currentRecipes }) => {
       <>
         {currentRecipes?.map((d) => (
           <div className="card" key={d.id}>
+            <h1 className="title">
+              <Link
+                style={{ textDecoration: "none", color: "#FFF8F0" }}
+                to={"/details/" + d.id}
+              >
+                {d.title}
+              </Link>
+            </h1>
             <div className="flipCard">
               <div className="flipFront">
-                <h1 className="title">
-                  <Link
-                    style={{ textDecoration: "none", color: "#FFF8F0" }}
-                    to={"/details/" + d.id}
-                  >
-                    {d.title}
-                  </Link>
-                </h1>
                 <div className="infoCard">
                   <p>
                     {regex.test(d.id) === true
@@ -46,7 +46,15 @@ const Card = ({ currentRecipes }) => {
                 </div>
               </div>
               <div className="flipBack">
-                <img className="backImg" src={d?.image} alt="cardimgerror" />
+                <img
+                  className="backImg"
+                  src={
+                    d.image
+                      ? d.image
+                      : "https://www.gastrotradicional.com/wp-content/uploads/2020/12/pastel-de-papa-3.jpg"
+                  }
+                  alt="cardimgerror"
+                />
               </div>
             </div>
           </div>

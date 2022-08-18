@@ -165,31 +165,31 @@ const Creator = () => {
               ))}
             </select>
             {error.diets && <p className="error">{error.diets} </p>}
+            {input.diets.length > 0 && (
+              <div className="selectedDiets" key="selectedDiets">
+                <label>Selected diets:</label>
+                {input.diets.map((e) => (
+                  <button
+                    className="dietButton"
+                    key={e + "Key"}
+                    onClick={() => handleDelete(e)}
+                  >
+                    {e} x
+                  </button>
+                ))}
+              </div>
+            )}
           </label>
           <button
             className="sendButton"
             disabled={Object.keys(error).length}
             type="submit"
           >
-            SEND IT TO HOME
+            {Object.keys(error).length ? "UNAVAILABLE" : "SEND"}
           </button>
         </form>
-        {input.diets.length > 0 && (
-          <div key="selectedDiets">
-            <label>Selected diets:</label>
-            {input.diets.map((e) => (
-              <button
-                className="dietButton"
-                key={e + "Key"}
-                onClick={() => handleDelete(e)}
-              >
-                {e} x
-              </button>
-            ))}
-          </div>
-        )}
         <button className="backBtn" onClick={handleClick}>
-          Back
+          Ritorno
         </button>
       </div>
     );

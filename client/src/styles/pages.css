@@ -1,18 +1,204 @@
-.landingBg{
-    background: url("../assets/landing.png");
-    background-size: cover;
-    display: flex;
-    height: 100%;
-    width: 100%;
+.landingBg {
+  background: url("../assets/landing.png");
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-around;
+  align-items: center;
 }
-.homeDiv{
-    display: flex;
-    place-content: center;
-    place-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    background: url("../assets/269.jpg");
-    background-clip: padding-box;
-    background-size: contain;
+.landingTextDiv {
+  clip-path: polygon(
+    0% 15%,
+    15% 15%,
+    15% 0%,
+    85% 0%,
+    85% 15%,
+    100% 15%,
+    100% 85%,
+    85% 85%,
+    85% 100%,
+    15% 100%,
+    15% 85%,
+    0% 85%
+  );
+  background-color: #1a5200;
+  height: 35vh;
+  margin-left: 2vw;
+  border: 3px double rgba(255, 216, 0, 0.71);
+}
+.landingTextDiv > h1 {
+  margin-left: 2.5vw;
+  text-shadow: 0px 0px 15px #f3c600;
+}
+.landingTextDiv > h3 {
+  margin-top: 10vh;
+  text-shadow: 0px 0px 15px #ceb235;
+  padding: 5px;
+  clip-path: inset(1% 1% 1% 1%);
+}
+
+.landingBtn {
+  padding: 2px 1.3vw 2px 1.3vw;
+  background-color: #7a1b00;
+  color: white;
+  width: 200%;
+  height: 30px;
+  border-radius: 13px;
+  border: hidden;
+}
+.tonio {
+  object-fit: contain;
+  z-index: 1;
+}
+.homeDiv {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background: url("../assets/269.jpg");
+  background-clip: padding-box;
+  background-size: contain;
+}
+.detailContainer {
+  color: #fff8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  background: url("../assets/269.jpg");
+  height: max-content;
+  width: auto;
+}
+.titleDetail {
+  font-size: xx-large;
+  font-weight: 700;
+  text-shadow: 0px 0px 15px #f3c600;
+}
+.foodPik {
+  border-radius: 15%;
+  width: 30%;
+}
+.infoDetail {
+  padding: 2vh 1.5vw 2vh 1.5vw;
+  font-size: large;
+  color: #753a13;
+  background: #e4d3a2d2;
+  display: flex;
+  flex-direction: column;
+  margin: 2vh 2.4vw 2vh 2.4vw;
+  align-items: center;
+  border-radius: 4%;
+}
+.steps {
+  color: #fff8f0;
+  background-color: #7a1a0098;
+  padding: 1vh 1vw 1vh 1vw;
+  border-radius: 10px;
+}
+#dietSpanDetail {
+  margin: 0.3vh;
+  background-color: #7a1b00;
+  height: 1rem;
+  padding: 0.5vw;
+  width: auto;
+  color: #fff8f0;
+  border-radius: 40px;
+}
+.backButton {
+  padding: 2vh 1vw 2vh 1vw;
+  background-color: #1a5200;
+  color: #fff8f0;
+  font-weight: 600;
+  font-size: large;
+  border-radius: 8%;
+  margin: 2%;
+}
+.delButton {
+  padding: 2vh 1vw 2vh 1vw;
+  background-color: #b77951;
+  color: #fff8f0;
+  font-weight: 600;
+  font-size: larger;
+  border-radius: 8%;
+  margin: 2%;
+}
+.creatorContainer {
+  background-image: url("../assets/top-view-food-ingredients-with-notebook-spices.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  align-content: center;
+}
+.creatorContainer > h1 {
+  color: #fefae0;
+  text-shadow: 0px 0px 5px #1a5200;
+}
+.formCon {
+  height: 80%;
+  display: flex;
+  padding: 20px;
+  background-color: #dda25e8e;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: large;
+  text-shadow: 0px 0px 5px #fefae0;
+  border-radius: 1%;
+  box-shadow: 0px 0px 15px 3px #1a5200;
+}
+.inputStyle {
+  margin-left: 5px;
+}
+.selectedDiets {
+  margin-top: 7%;
+}
+.dietButton {
+  display: flex;
+  margin: 0.3vh;
+  background-color: #7a1b00;
+  height: 1rem;
+  padding: 0.8vw;
+  width: auto;
+  color: #fff8f0;
+  border-radius: 5px;
+  align-items: center;
+}
+.sendButton {
+  padding: 2%;
+  background-color: #1a520085;
+  color: #fefae0;
+  font-weight: 600;
+  border-radius: 5px;
+  border: hidden;
+  box-shadow: 0px 0px 15px 3px #ffdada;
+}
+.backBtn {
+  padding: 1%;
+  background-color: #b77a51a6;
+  color: #fefae0;
+  margin: 1%;
+  font-weight: 600;
+  border-radius: 5px;
+  border: hidden;
+  box-shadow: 0px 0px 15px 3px #1a520085;
+}
+.error {
+  color: white;
+  background-color: #7a1a004f;
+  border-radius: 5px;
+  padding: 3px;
 }

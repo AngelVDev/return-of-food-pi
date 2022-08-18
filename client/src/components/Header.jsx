@@ -48,7 +48,7 @@ const Header = ({ setCurrentPage }) => {
   return (
     <div className="filterContainer">
       <button className="create">
-        <Link style={{ textDecoration: "none" }} to="/create">
+        <Link style={{ textDecoration: "none", color: "white" }} to="/create">
           {" "}
           Share your recipes
         </Link>

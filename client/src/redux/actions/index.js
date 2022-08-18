@@ -105,7 +105,7 @@ export function orderByHealthiness(payload) {
 export function deleteById(id) {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`/details/${id}/delete`);
+      const json = await axios.get(`/recipes/${id}/delete`);
       return dispatch({ type: "DELETE_BY_ID", payload: json.data });
     } catch (err) {
       console.log(err);

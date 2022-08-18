@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Loader from "../components/Loader";
 import { clear, deleteById, getDetails } from "../redux/actions";
-// import "./styles/Details.css";
+import "../styles/pages.css";
 
 const Details = ({ match }) => {
   const dispatch = useDispatch();
   const { id } = match.params;
   const history = useHistory();
   const recs = useSelector((state) => state.foodDetail);
+  const regex = new RegExp("[a-z]");
 
   useEffect(() => {
     dispatch(clear());
@@ -26,13 +27,15 @@ const Details = ({ match }) => {
     alert(recs.title + " deleted from DB");
     history.push("/home");
   };
+  console.log(recs);
 
   if (recs) {
     return (
       <div className="detailContainer">
         <h1>Detailed Info</h1>
-        <h2>{recs.title}</h2>
+        <h2 className="titleDetail">{recs.title}</h2>
         <img
+          className="foodPik"
           src={
             recs.image
               ? recs.image
@@ -40,11 +43,11 @@ const Details = ({ match }) => {
           }
           alt="comida"
         />
-        <div>
+        <div className="infoDetail">
           <p dangerouslySetInnerHTML={{ __html: recs.summary }} />
           {recs.steps ? (
-            <p alt="Steps">
-              Steps:{" "}
+            <p className="steps" alt="Steps">
+              <b>Steps: </b>
               {recs.steps?.map((e) => (
                 <ul>
                   <li>{e}</li>
@@ -52,19 +55,30 @@ const Details = ({ match }) => {
               ))}
             </p>
           ) : null}
-          <p alt="H.Score">Healthiness: {recs.hScore} </p>
-          <p className="priceDiv" alt="Price">
-            Price: ${recs.price}{" "}
-          </p>
+          <b>
+            <p alt="H.Score">Healthiness: {recs.hScore} </p>
+          </b>
+          {recs.price && (
+            <b>
+              <p className="priceDiv" alt="Price">
+                Price: ${recs.price}{" "}
+              </p>
+            </b>
+          )}
           <p>
-            Diet types:{" "}
-            <span>
-              {!recs.diets
-                ? "Not defined"
-                : recs.diets.map((el) =>
-                    el.length > 1 ? el + ", " : el + "."
-                  )}
-            </span>
+            <b>Diet types: </b>
+
+            {regex.test(recs.id) === true
+              ? recs.diets?.map((diet) => (
+                  <span id="dietSpanDetail" key={diet.name + "id"}>
+                    {diet.name}
+                  </span>
+                ))
+              : recs.diets?.map((el) => (
+                  <span key={recs.id + Math.random()} id="dietSpanDetail">
+                    {el}
+                  </span>
+                ))}
           </p>
         </div>
         {recs.id?.length > 10 ? (
@@ -72,7 +86,9 @@ const Details = ({ match }) => {
             Delete
           </button>
         ) : null}
-        <button onClick={handleClick}>Ritorno</button>
+        <button onClick={handleClick} className="backButton">
+          Ritorno
+        </button>
       </div>
     );
   } else {
