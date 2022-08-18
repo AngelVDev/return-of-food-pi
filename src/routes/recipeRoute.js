@@ -65,7 +65,6 @@ router.post("/recipes", async (req, res) => {
       hScore,
       steps: [steps],
       price,
-      diets,
     });
     const dietDb = await Diet.findAll({ where: { name: diets } });
     recipeNew.addDiet(dietDb);
@@ -74,7 +73,7 @@ router.post("/recipes", async (req, res) => {
     console.log(error);
   }
 });
-router.get("/:id/delete", async (req, res) => {
+router.get("/recipes/:id/delete", async (req, res) => {
   try {
     await Recipe.destroy({
       where: { id: req.params.id },
