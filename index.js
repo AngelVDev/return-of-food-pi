@@ -21,10 +21,10 @@ const server = require("./src/app.js");
 const { dietsAPI } = require("./src/controllers/dietController.js");
 const { getAllRecipes } = require("./src/controllers/recipeController.js");
 const { conn } = require("./src/db.js");
-
+const PORT = process.env.PORT;
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+conn.sync({ force: false }).then(() => {
+  server.listen(PORT || 3001, () => {
     getAllRecipes();
     dietsAPI();
     console.log("%s seasoning at 3001"); // eslint-disable-line no-console
