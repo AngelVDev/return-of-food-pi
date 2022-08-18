@@ -32,7 +32,9 @@ const getApiInfo = async (req, res) => {
   try {
     let i = 0;
     const apiUrl = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEYX[9]}&addRecipeInformation=true&number=100`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${
+        API_KEYX[9] || API_KEY
+      }&addRecipeInformation=true&number=100`
     );
     const bunchRecipes = await apiUrl.data.results.map((food) => ({
       id: `${food.id}`,
