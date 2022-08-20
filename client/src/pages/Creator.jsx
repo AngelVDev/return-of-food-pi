@@ -56,10 +56,13 @@ const Creator = () => {
     setError(validateForms({ ...input, [e.target.name]: e.target.value }));
   };
   const handleSelect = (e) => {
-    setInput({
-      ...input,
-      diets: [...input.diets, e.target.value],
-    });
+    if (!input.diets.includes(e.target.value)) {
+      setInput({
+        diets: [...input.diets, e.target.value],
+      });
+    } else {
+      setInput({ ...input });
+    }
   };
   const handleDelete = (e) => {
     setInput({
@@ -183,9 +186,15 @@ const Creator = () => {
           <button
             className="sendButton"
             disabled={Object.keys(error).length}
-            type="submit"
+            type={
+              Object.keys(error).length || Object.keys(!error)
+                ? "none"
+                : "submit"
+            }
           >
-            {Object.keys(error).length ? "UNAVAILABLE" : "SEND"}
+            {Object.keys(error).length || Object.keys(!error)
+              ? "UNAVAILABLE"
+              : "SEND"}
           </button>
         </form>
         <button className="backBtn" onClick={handleClick}>
